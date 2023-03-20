@@ -4,6 +4,9 @@ import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { env } from 'process';
+import { UserModule } from './user/user.module';
+//import { ApiModule } from './api/api.module';
+import { AuthModule } from './auth/auth.module';
 env
 @Module({
   imports: [
@@ -14,6 +17,9 @@ env
       autoLoadEntities:true,
       synchronize:true,
     }),
+    UserModule,
+  //  ApiModule,
+    AuthModule,
 
   ],
   controllers: [AppController],
